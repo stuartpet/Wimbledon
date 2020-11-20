@@ -4,19 +4,20 @@ require 'tennis_match'
 
 RSpec.describe TennisMatch do
 
-  subject { described_class.new }
+  subject { described_class.new(player_1: player_1) }
+
+  let(:player_1) { 'Nadal' }
+  let(:player_2) { 'Rafa' }
 
   context 'when a player opens the game' do
     it 'puts a greeting' do
-      expect { subject.greeting }.to output("Hi, Welcome to wimbledon, please add your player name\n").to_stdout
+      expect { subject.start_game }.to output.to_stdout
     end
   end
 
-  context 'when a player enters their name' do
-    let(:name) {"Nadal"}
-    it 'greets the player by name' do
-      expect { subject.start }.to output("Hi #{name}, let's play!").to_stdout
+  context ' when players have entered their names' do
+    it 'prints out a message' do
+      expect { subject.get_ready }.to output.to_stdout
     end
   end
-
 end
