@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
-RSpec.describe 'tennis_match' do
+require 'tennis_match'
+
+RSpec.describe TennisMatch do
 
   subject { described_class.new }
 
   context 'when a player opens the game' do
     it 'puts a greeting' do
-      expect(subject).to output(/Hi, Welcome to wimbledon, please add your player name/).to_stdout
+      expect(subject.greeting).to output(/Hi, Welcome to wimbledon, please add your player name/).to_stdout
     end
   end
 
