@@ -2,5 +2,8 @@
 
 class TennisMatch
 
+  def greeting()
+    puts "Hi, Welcome to wimbledon, please add your player name"
+  end
 
 end
