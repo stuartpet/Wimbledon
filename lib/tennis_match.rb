@@ -3,7 +3,7 @@
 class TennisMatch
   attr_reader :player_1, :player_2, :p1_score, :p2_score
 
-  def initialize(player_1: '', player_2: '')
+  def initialize(player_1: '', player_2: '', p1_score: 0)
     @player_1 = player_1
     @player_2 = player_2
     @p1_score = 0
@@ -20,7 +20,7 @@ class TennisMatch
 
   def ready
     puts "Hi #{player_1} and #{player_2}, get ready"
-    # p1_serve
+    serve
   end
 
   def rules
@@ -41,5 +41,15 @@ class TennisMatch
     p1_shot = gets.chomp
     puts "#{player_2} return with left, right or middle"
     p2_shot = gets.chomp
+    player_shot(p1_shot, p2_shot)
+  end
+
+  def player_shot(p1_shot, p2_shot)
+    if p1_shot == p2_shot
+      serve
+    elsif
+    p1_shot != p2_shot
+      @p1_score += 15
+    end
   end
 end
