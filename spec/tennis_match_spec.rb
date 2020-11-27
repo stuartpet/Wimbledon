@@ -15,9 +15,15 @@ RSpec.describe TennisMatch do
     end
   end
 
-  context ' when players have entered their names' do
+  context 'when players have entered their names' do
     it 'prints out a message' do
-      expect { subject.get_ready }.to output.to_stdout
+      expect { subject.ready }.to output.to_stdout
+    end
+  end
+
+  context 'when a player starts a service game' do
+    it 'it will ask them to choose left, right or middle' do
+      expect { subject.serve }.to output.to_stdout
     end
   end
 end
