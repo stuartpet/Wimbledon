@@ -1,13 +1,15 @@
 # frozen_string_literal: true
-
 class TennisMatch
+
+  require 'pry'
+
   attr_reader :player_1, :player_2, :p1_score, :p2_score
 
-  def initialize(player_1: '', player_2: '', p1_score: 0)
+  def initialize(player_1: '', player_2: '', p1_score:, p2_score:)
     @player_1 = player_1
     @player_2 = player_2
-    @p1_score = 0
-    @p2_score = 0
+    @p1_score = p1_score
+    @p2_score = p2_score
   end
 
   def start_game
@@ -47,9 +49,18 @@ class TennisMatch
   def player_shot(p1_shot, p2_shot)
     if p1_shot == p2_shot
       serve
-    elsif
-    p1_shot != p2_shot
+    elsif p1_shot != p2_shot
+      score_keeper
+    end
+  end
+
+  def score_keeper
+    if @p1_score > 40
+      puts "Congratulations #{player_1} you won the game"
+      elsif @p1_score != 30
       @p1_score += 15
+    elsif
+      @p1_score += 10
     end
   end
 end
